@@ -1,6 +1,8 @@
 package cucumber.stepdef;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -27,10 +29,12 @@ public class update_contact_detail {
     }
 
     @When("user click my Info")
-    public void info(){
-        driver.findElement(By.xpath("//span[text()='My Info']")).click();
-        driver.findElement(By.xpath("//a[text()='Contact Details']")).click();
+    public void info(){ driver.findElement(By.xpath("//span[text()='My Info']")).click(); }
 
-    }
+    @Then("click Contact Details")
+    public void kontak(){ driver.findElement(By.xpath("//a[text()='Contact Details']")).click(); }
+
+    @And("fill Street 1")
+    public void street1() { driver.findElement(By.xpath("")).sendKeys(""); }
 
 }

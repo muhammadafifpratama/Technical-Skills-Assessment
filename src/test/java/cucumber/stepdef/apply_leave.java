@@ -1,11 +1,13 @@
 package cucumber.stepdef;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,8 +30,9 @@ public class apply_leave {
     }
 
     @When("user click apply leave")
-    public void apply(){
+    public void apply(){ driver.findElement(By.xpath("//button[@title='Apply Leave']")).click(); }
 
-    }
+    @And("pick Leave Type")
+    public void type(){ driver.findElement(By.xpath("//div[text()='-- Select --']")).click(); }
 
 }
